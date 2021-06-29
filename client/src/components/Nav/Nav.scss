@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
+a{
+    color: #cfd2d8;
+    text-align: center;
+    text-decoration: none;
+    &:hover{
+        color: #abe0c5;
+        text-decoration: none;
+    }
+}
+.nav-container{
+width: 100%;
+height: 25vh;
+}
+.nav-heder-container{
+height: 15vh;
+background-image: url("./../../assets/images/Untitled-1.png");
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.navbar-content{
+    height: 8vh;
+    background-color: #CCD5AE;
+}
+.nav-li-item{
+    padding-top: 2vh;
+    width: 20vw;
+    height: 100%;
+    p{
+        font-size: 2.5vh;
+        color: #FFFFFF;
+        text-shadow: 2px 2px 0 #a8b386;
+        font-family: 'Josefin Sans', sans-serif;
+        text-decoration: none;
+        &:hover,&:active{
+            text-decoration: none;
+        }
+        }
+    &:hover{
+        box-shadow: inset #e3ebc9 0px 0px 15px 7px;
+        p{
+            text-shadow: 1px 1px 0 #33436da4;
+        }
+    }
+    &:active{
+        box-shadow: inset #b9bea7 0px 0px 20px 7px;
+        p{
+            text-shadow: 1px 1px 0 #33436d3a;
+        }
+    }
+}
+.nav-ul-content{
+    width: 100%;
+    height: 8vh;
+    justify-content: center;
+}

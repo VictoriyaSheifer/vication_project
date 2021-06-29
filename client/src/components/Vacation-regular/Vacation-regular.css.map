@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,OAAO,CAAC,yFAAI;AACZ,AAAA,0BAA0B,CAAA;EAC1B,MAAM,EAAC,GAAG;CACT",
+    "sources": [
+        "Vacation-regular.scss"
+    ],
+    "names": [],
+    "file": "Vacation-regular.css"
+}

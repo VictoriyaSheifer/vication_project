@@ -1,0 +1,80 @@
+.icons-container{
+    position: fixed;
+    top: 1vh;
+    right: 1vw;
+    height: auto;
+    display: flex;
+}
+.floating-icons{
+    width: 3vw;
+    top: 1vh;
+    right: 1vw;
+    position: fixed;
+}
+
+
+.reg-icon-animete {
+  animation: slide-left1  0.5s linear both;
+}
+
+.log-icon-animete {
+  animation: slide-left2  0.5s linear both;
+}
+
+.slide-rigth1 {
+animation: slide-rigth-1 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.slide-rigth2 {
+animation: slide-rigth-2 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.display-none{
+    display: none;
+}
+/**
+* ----------------------------------------
+* animation slide-left
+* ----------------------------------------
+*/
+@keyframes slide-left1 {
+0% {
+    transform: translateX(0);
+}
+100% {
+    transform: translateX(-100px);
+}
+}
+
+@keyframes slide-left2 {
+0%{
+    transform: translateX(0);
+}
+100% {
+    transform: translateX(-200px);
+}
+}
+/**
+* ----------------------------------------
+* animation slide-right
+* ----------------------------------------
+*/
+@keyframes slide-right-1 {
+0% {
+    transform: translateX(-100px);
+}
+100% 
+{
+    transform: translateX(0);
+}
+}
+
+@keyframes slide-right-2 {
+  0% {
+      transform: translateX(-200px);
+  }
+  100% 
+  {
+      transform: translateX(0);
+  }
+  }
+  

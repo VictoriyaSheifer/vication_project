@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,6BAA6B,EAAC,gCAAgC,CAAA;EAC1D,KAAK,EAAE,GAAG;EACV,KAAK,EAAE,SAAS;CACnB;;AACD,AAAA,6BAA6B,AAAA,OAAO,CAAA;EAChC,KAAK,EAAE,0BAA0B;CACpC;;AACD,AAAA,gCAAgC,CAAA;EAC5B,UAAU,EAAE,MAAM;CACrB;;AACD,AAEQ,KAFH,AACA,MAAM,CACH,gCAAgC,CAAA;EAC5B,UAAU,EAAE,OAAO;CACtB",
+    "sources": [
+        "Vacation_Card.scss"
+    ],
+    "names": [],
+    "file": "Vacation_Card.css"
+}

@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lobster&family=Patua+One&display=swap');
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.insert-conteiner{
+
+    background-color: #f7f2e6;
+    border-radius: 20px;
+    box-shadow: 2px 3px 4px 1px #ab967173;
+    width: 46vw;    
+    margin: auto;
+    margin-top: 10vh;
+}
+.content-container{
+    position: inherit;
+    padding: 3vh;
+
+}
+.dark-bage-color{
+    color: #D4A373;
+    text-shadow: 1px 1px 1px #5e3f20;
+}
+.font-family-Patua{
+    font-family: 'Patua One', cursive;
+}
+.font-family-Lobster{
+    font-family: 'Lobster', cursive;
+}
+.welcome-row{
+    margin-bottom: 12vh;
+}
+.home-container{
+    width: 100vw;
+}
+.welcome-wrapper,.fitures-wrapper{
+    margin-right: 20vw;
+    margin-left: 20vw;
+    width: 60vw;
+    padding: 12vh 4vh 12vh 4vh;
+    box-sizing: content-box;
+}
+
+.reg-header-container{
+    justify-content: center;
+    margin: 6vh;
+}
+.welcome-container{
+    width: 100%;
+    background-color: #ffffff;
+}
+.fitures-container{
+    width: 100%;
+    background-color: #FEFAE0;
+}
+
+.feat-heder{
+    font-family: 'Patua One', cursive;
+    font-size: 2.4vh;
+}
+
+.feat-content{
+    height: 20vh;
+    overflow-y: scroll;
+}
+.about-img{
+border-radius: 50%;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f100; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .vacation-container,.reg-cont{
+    min-height: 80vh;
+  }
+  .margin-top-bottom{
+      margin-top: 8vh;
+      margin-bottom: 8vh;
+  }
+  .margin-top-bottom-small{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+  .reg-cont{
+    margin-top: 11vh;
+    margin-bottom: 8vh;
+  }
