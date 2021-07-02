@@ -1,7 +1,7 @@
 const con = require('../utils/databse')
 const Vacations = require('../models/VacationsModel');
 const Users = require('../models/UsersModel');
-
+const Users_Vacations = require('../models/userVacationModale');
 
 exports.getAllVacations = async (req, res) => {
     await Vacations.findAll().then(result => {
@@ -14,17 +14,42 @@ exports.getAllVacations = async (req, res) => {
 
 //INSERT
 exports.insertVacation = async (req, res) => {
-        // {
-        // "destination":"",
-        //  "description":"",
-        //  "start_date":"",
-        //  "end_date":"",
-        //  "price":"",
-        // }
     await Vacations.create(req.body).then(result => {
         res.send(result)
     }).catch(err => {
-        res.send("error load meeting" + JSON.stringify(err))
+        res.send("error load inserted vacation" + JSON.stringify(err))
+    });
+}
+
+exports.likeVacation = async (req, res) => {
+    await Users_Vacations.create(req.body).then(result => {
+        res.send(result)
+    }).catch(err => {
+        res.send("error load liked vacation" + JSON.stringify(err))
+    });
+}
+
+exports.getnumberOfLikedVications = async (req, res) => {
+    await Users_Vacations.findAndCountAll({ where: { vacationId: req.body.vacationId } }).then(result => {
+        res.send(result)
+    }).catch(err => {
+        res.send("error load liked vacation" + JSON.stringify(err))
+    });
+}
+
+exports.getUsersLikesVacations = async (req, res) => {
+    await Users_Vacations.findAndCountAll({ where: { userId: req.body.userId } }).then(result => {
+        res.send(result)
+    }).catch(err => {
+        res.send("error load liked vacation" + JSON.stringify(err))
+    });
+}
+
+exports.unlikeVacation = async (req, res) => {
+    await Users_Vacations.destroy({where: {userId: req.body.userId , vacationId: req.body.vacationId}}).then(result => {
+        res.send(result)
+    }).catch(err => {
+        res.send("error load liked vacation" + JSON.stringify(err))
     });
 }
 

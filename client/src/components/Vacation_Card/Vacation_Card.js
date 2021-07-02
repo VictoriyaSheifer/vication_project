@@ -14,13 +14,13 @@ class VacationCard extends Component {
         let start_date = this.props.singleVacation.start_date ? Moment(this.props.singleVacation.start_date).format('d MMM') : "No Date Mentiond" ;
         let end_date = this.props.singleVacation.end_date ? Moment(this.props.singleVacation.end_date).format('d MMM') : "No Date Mentiond" ;
         console.log("is a menager ? " , this.props.is_a_meneger) 
-        let card_options = this.props.is_a_meneger ? <div className="vacation-option-wrapper-manager"><i class="fas fa-times-circle fa-lg"></i><i class="fas fa-edit fa-lg"></i></div> : <div className="vacation-option-wrapper-user"><i class="fas fa-heart fa-lg"></i></div>
+        let card_options = this.props.is_a_meneger ? <div className="vacation-option-wrapper-manager"><i className="fas fa-times-circle fa-lg"></i><i className="fas fa-edit fa-lg"></i></div> : <div className="vacation-option-wrapper-user"><i className="fas fa-heart fa-lg" onClick={() =>  this.props.likeVacation(this.props.singleVacation.id)}></i></div>
 
         return (
             <div className="col-4 mt-4">
                 <div className="card">
                 <img className="card-img-top" src={image_path} alt="Card image cap"></img>
-                <div class="card-img-overlay">
+                <div className="card-img-overlay">
                 {card_options}
                 </div>
                     <div className="card-body">

@@ -9,6 +9,17 @@ class VacationList extends Component {
 
     componentDidMount = () => {
         this.getAllVacations()
+        let user = localStorage.getItem("user")
+        let role = localStorage.getItem("role")
+        user =  Number(JSON.parse(user))
+        role =  Number(JSON.parse(role))
+        console.log("userId vacation list: " ,user)
+        console.log("role vacation list: " ,role)
+        this.props.updateLogedInUser(user);
+        if(role)
+            this.props.isAManeger(true);
+        else
+            this.props.isAManeger(false);
     }
 
     getAllVacations = async () => {
@@ -17,18 +28,33 @@ class VacationList extends Component {
         console.log("vacation : ", vacation.data)
     }
 
+    likeVacation = async (vacationId) => {
+        let ob={
+            "userId":this.props.loged_in_user,
+            "vacationId":vacationId
+         }
+        let liked_vacation = await Api.postRequest("/vacations/getUsersLikesVacations",ob)
+        console.log("liked_vacation : ", liked_vacation.data)
+        let found = liked_vacation.data.rows.find( vacation => vacation.vacationId == vacationId);
+
+        if(found){
+            let vacation = await Api.postRequest("/vacations/unlikeVacation",ob)
+            console.log("vacation : ", vacation.data)
+        }
+        else{
+            let vacation = await Api.postRequest("/vacations/likeVacation",ob)
+            console.log("vacation : ", vacation.data)
+        }
+    }
+
     render() {
-        //let vacations_list = this.props.vacations ? this.props.vacations.map((vacation, index) => <VacationCard key={vacation.id} singleVacation={vacation} index={index} />) : <div></div>
-        console.log("render ",this.props.vacations)
-        //let vacations = this.props.vacations
+       console.log("render ",this.props.vacations)
         return (
             <div className="loged_in-maneger-container container">
-                <div className="loged_in_vacations">
+                <div className="loged_in_vacations row">
                 {
-                    // vacations.map((vacation, index) => <div>{vacation.destination}</div>)
-                    this.props.vacations.map((vacation, index) => <VacationCard key={index} singleVacation={vacation}></VacationCard>)
+                    this.props.vacations.map((vacation, index) => <VacationCard key={index} singleVacation={vacation} likeVacation={this.likeVacation}></VacationCard>)
                 }
-                {/* <VacationCard key={vacation} singleVacation={vacation} index={index} />) */}
                 </div>
             </div>
         );
@@ -39,6 +65,7 @@ const mapStateToProps = state => {
     console.log("State : ", state)
     return {
         vacations: state.vacations,
+        loged_in_user: state.loged_in_user,
     }
 }
 

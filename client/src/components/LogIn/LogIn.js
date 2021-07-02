@@ -3,7 +3,6 @@ import './LogIn.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Api from '../../api/apiCall';
-
 class LogIn extends Component {
 
     state = {
@@ -30,6 +29,7 @@ class LogIn extends Component {
         console.log("role Log-in: " ,this.props.is_a_meneger)
     }
 
+
     logInFunction = async () => {
 
         let user_cridentials = {
@@ -38,7 +38,7 @@ class LogIn extends Component {
         }
 
         let users = await Api.postRequest("/users/CheckIfExist", user_cridentials)
-        console.log("check if exists : " ,users)
+        console.log("check if exists : " , users)
 
         if(users.data === "no found")
         {//wrong email
@@ -184,7 +184,7 @@ class LogIn extends Component {
                     </form>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" ref={input => this.inputElement = input} className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" ref={input => this.inputElement = input} className="btn btn-secondary" data-dismiss="modal"  onClick={() => this.logInFunction() } >Cancel</button>
                         <button type="button" className="btn btn-success" onClick={() => this.logInFunction() } >Log In</button>
                     </div>
                     </div>
