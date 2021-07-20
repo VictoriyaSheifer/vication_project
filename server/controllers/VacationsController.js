@@ -8,7 +8,7 @@ exports.getAllVacations = async (req, res) => {
         console.log(result);
         res.send(result)
     }).catch(err => {
-        res.send("error load getAllProducts" + JSON.stringify(err))
+        res.send("error load getAllVacations" + JSON.stringify(err))
     })
 }
 
@@ -29,19 +29,11 @@ exports.likeVacation = async (req, res) => {
     });
 }
 
-exports.getnumberOfLikedVications = async (req, res) => {
-    await Users_Vacations.findAndCountAll({ where: { vacationId: req.body.vacationId } }).then(result => {
-        res.send(result)
-    }).catch(err => {
-        res.send("error load liked vacation" + JSON.stringify(err))
-    });
-}
-
 exports.getUsersLikesVacations = async (req, res) => {
     await Users_Vacations.findAndCountAll({ where: { userId: req.body.userId } }).then(result => {
         res.send(result)
     }).catch(err => {
-        res.send("error load liked vacation" + JSON.stringify(err))
+        res.send("error load users liked vacation" + JSON.stringify(err))
     });
 }
 
@@ -53,6 +45,49 @@ exports.unlikeVacation = async (req, res) => {
     });
 }
 
+//DELETE
+exports.deleteVacations = async (req, res) => {
+    await Vacations.destroy({where: {id: req.body.id }}).then(result => {
+        res.send(200)
+    }).catch(err => {
+        res.send("error load vacations")
+    });
+}
+
+// //update 
+exports.editVacations = async (req, res) => {
+    await Vacations.update(req.body, { where: { id: req.body.id } }).then(result => {
+        res.send(result)
+    }).catch(err => {
+        res.send("error load editVacations" + JSON.stringify(err))
+    })
+}
+
+// await User.update({ lastName: "Doe" }, {
+//     where: {
+//       id: 3
+//     }
+
+exports.updateNumOfLikes = async (req, res) => {
+    await Vacations.update({num_of_followers : req.body.count}, { where:{ id: req.body.vacationId } }).then(result => {
+        res.send(result)
+    }).catch(err => {
+        res.send("error load udate num following Vacations" + JSON.stringify(err))
+    })
+}
+
+exports.calcLikedVacations = async (req, res) => {
+    await Users_Vacations.findAndCountAll({ where: { vacationId: req.body.vacationId } }).then(result => {
+        let ob = {
+            vacationId:req.body.vacationId, 
+            count: result.count,
+        }
+        res.send(ob);
+    }).catch(err => {
+        res.send("error load editVacations" + JSON.stringify(err))
+    })
+    updateNumOfLikes(ob)
+}
 
 // //GET + Join 
 // exports.getAllMeetings = async (req, res) => {

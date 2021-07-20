@@ -1,1 +1,17 @@
-/* No CSS *//*# sourceMappingURL=Vacation-list.css.map */
+.vacations-cards {
+  margin: 2vh;
+}
+
+.add-wrapper {
+  height: 100%;
+}
+
+#add-icon {
+  margin-top: 9vh;
+}
+
+.add-card {
+  background-color: #CCD5AE;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Vacation-list.css.map */

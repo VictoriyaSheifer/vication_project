@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as Api from '../api/apiCall';
+import * as Api from '../../api/apiCall';
 
 class UploadImage extends Component {
 
@@ -16,15 +16,17 @@ class UploadImage extends Component {
     upload = async () => {
         const formData = new FormData();
         const files = this.filesToUpload;
-        console.log(files);
+        console.log("1.",files[0]);
 
         for (let i = 0; i < files.length; i++) {
-            formData.append("images[]", files[i], files[i]['name']);
+            formData.append("uploads[]", files[i]);
+            console.log("formData::::::::",formData)
         }
         console.log("UPLOAD ")
         let res = await Api.postRequest('/upload', formData)
+        console.log("res::::::::",res)
         // console.log('form data variable :   ', formData);
-        // this.http.post('http://localhost:3003/upload', formData)
+        // this.http.post('http://localhost:5000/upload', formData)
         //     .map(files => files.json())
         //     .subscribe(files => console.log('files', files))
     }
@@ -33,8 +35,8 @@ class UploadImage extends Component {
         return (
             <div>
                 <input id="cin" name="cin" type="file" onChange={($event) => this.fileChangeEvent($event)} placeholder="Upload a file..." multiple />
-                <button type="button" className="btn btn-success btn-s" onClick={() => this.upload()}>
-                    <i className="glyphicon glyphicon-open-file"></i>&nbsp;Upload
+                <button type="button" class="btn btn-success btn-s" onClick={() => this.upload()}>
+                    <i class="glyphicon glyphicon-open-file"></i>&nbsp;Upload
                 </button>
             </div >
         );

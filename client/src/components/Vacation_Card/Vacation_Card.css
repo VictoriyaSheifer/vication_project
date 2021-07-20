@@ -7,11 +7,20 @@
   color: rgba(255, 255, 255, 0.897);
 }
 
+.liked-vacation {
+  color: rgba(235, 208, 208, 0.897);
+}
+
 .vacation-option-wrapper-manager {
   visibility: hidden;
 }
 
 .card:hover .vacation-option-wrapper-manager {
   visibility: visible;
+}
+
+.card-description {
+  height: 9vh;
+  overflow-y: scroll;
 }
 /*# sourceMappingURL=Vacation_Card.css.map */
