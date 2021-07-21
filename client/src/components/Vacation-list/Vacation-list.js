@@ -50,6 +50,14 @@ class VacationList extends Component {
 
     deleteVacations = async (vacationId) => {
         console.log("delete : ",vacationId)
+        let ob ={
+            id:vacationId
+        }
+        if(window.confirm("Are you sure you whant to delete this vacation?") === true) {
+            let vacation = await Api.postRequest("/vacations/deleteVacations",ob)
+            this.getAllVacations()
+            console.log("vacation : ", vacation.data)
+        };
     }
 
     openEditModal = async (vacationId) => {
