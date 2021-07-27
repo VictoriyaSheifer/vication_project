@@ -38,7 +38,7 @@ class Nav extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log("State : ", state)
+    // console.log("State : ", state)
     return {
         loged_in_user: state.loged_in_user,
         is_a_meneger: state.is_a_meneger,

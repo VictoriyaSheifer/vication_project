@@ -95,7 +95,7 @@ class CreateVacation extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log("State : ", state)
+    // console.log("State : ", state)
     return {
         teams: state.teams,
         selected_team: state.selected_team,

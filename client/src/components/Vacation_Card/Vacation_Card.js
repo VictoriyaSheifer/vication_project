@@ -5,16 +5,17 @@ import { connect } from 'react-redux';
 
 class VacationCard extends Component {
 
+
     componentDidMount() {
-        console.log("singleVacation :::", this.props.singleVacation)
     }
 
     render() {
+        let likeBntStatus = "fas fa-heart fa-lg unliked-vacation"
         let image_path = "http://www.localhost:5000/" +  this.props.singleVacation.picture
         let start_date = this.props.singleVacation.start_date ? Moment(this.props.singleVacation.start_date).format('d MMM') : "No Date Mentiond" ;
         let end_date = this.props.singleVacation.end_date ? Moment(this.props.singleVacation.end_date).format('d MMM') : "No Date Mentiond" ;
-        let card_options = this.props.is_a_meneger ? <div className="vacation-option-wrapper-manager"><i className="fas fa-times-circle fa-lg"  onClick={() =>  this.props.deleteVacations(this.props.singleVacation.id)} ></i><i className="fas fa-edit fa-lg"  data-toggle="modal" data-target="#editModal" onClick={() =>  this.props.openEditModal(this.props.singleVacation.id)}></i></div> : <div className="vacation-option-wrapper-user"><i className="fas fa-heart fa-lg" onClick={() =>  this.props.likeVacation(this.props.singleVacation.id)}></i></div>
-
+        let card_options = this.props.is_a_meneger ? <div className="vacation-option-wrapper-manager"><i className="fas fa-times-circle fa-lg"  onClick={() =>  this.props.deleteVacations(this.props.singleVacation.id)} ></i><i className="fas fa-edit fa-lg"  data-toggle="modal" data-target="#editModal" onClick={() =>  this.props.openEditModal(this.props.singleVacation.id)}></i></div> : <div className="vacation-option-wrapper-user"><i className={likeBntStatus}  onClick={() =>  this.props.likeVacation(this.props.singleVacation.id)}></i></div>
+        let card_footer = this.props.is_a_meneger ? <p>price : {this.props.singleVacation.price}  likes:{this.props.singleVacation.num_of_followers}</p> : <p>{this.props.singleVacation.price}</p>
         return (
             <div className="col-4">
                 <div className="card vacations-cards">
@@ -28,7 +29,7 @@ class VacationCard extends Component {
                         <p className="card-text">Dates :{start_date} - {end_date}</p>
                     </div>
                     <div className="card-footer text-muted">
-                    price : {this.props.singleVacation.price}
+                    {card_footer}
                     </div>
                 </div>
             </div>
@@ -36,7 +37,6 @@ class VacationCard extends Component {
     }
 }
 const mapStateToProps = state => {
-    console.log("State : ", state)
     return {
         is_a_meneger: state.is_a_meneger,
     }

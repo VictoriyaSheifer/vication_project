@@ -1,6 +1,6 @@
 .vacation-option-wrapper-user, .vacation-option-wrapper-manager {
   width: 11%;
-  color: #325d4b9e;
+  color: #ffffffc4;
 }
 
 .vacation-option-wrapper-user:active {
@@ -8,7 +8,11 @@
 }
 
 .liked-vacation {
-  color: rgba(235, 208, 208, 0.897);
+  color: #e4b2b2;
+}
+
+.unliked-vacation {
+  color: rgba(255, 255, 255, 0.897);
 }
 
 .vacation-option-wrapper-manager {
@@ -17,6 +21,10 @@
 
 .card:hover .vacation-option-wrapper-manager {
   visibility: visible;
+}
+
+.fas {
+  cursor: pointer;
 }
 
 .card-description {

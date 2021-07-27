@@ -5,14 +5,15 @@ const Vacations = require('../controllers/VacationsController')
 
 
 router.get('/getAllVacations', Vacations.getAllVacations)
+router.get('/getfilterdVacations', Vacations.getfilterdVacations)
 router.post('/insertVacation', Vacations.insertVacation)
 router.post('/likeVacation', Vacations.likeVacation)
-router.post('/unlikeVacation', Vacations.unlikeVacation)
-router.post('/getUsersLikesVacations', Vacations.getUsersLikesVacations)
+router.post('/getVacationsByLikeOrder', Vacations.getVacationsByLikeOrder)
 router.post('/deleteVacations', Vacations.deleteVacations)
 router.post('/editVacations', Vacations.editVacations)
 router.post('/calcLikedVacations', Vacations.calcLikedVacations)
-
+router.post('/calcAllLikedVacations', Vacations.calcAllLikedVacations)
+router.post('/getUsersLikedVacations', Vacations.getUsersLikedVacations)
 //http://www.localhost:5000/vacations/getAllVacations
 //http://www.localhost:5000/vacations/insertVacation
 //http://www.localhost:5000/vacations/likeVacation

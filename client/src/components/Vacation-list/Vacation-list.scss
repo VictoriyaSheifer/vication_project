@@ -6,9 +6,21 @@
 height: 100%;
 }
 #add-icon{
-    margin-top: 9vh;
+    margin-top: 33%;
 }
-.add-card{
+.vacations-cards{
+    height: var(--card-height);
+}
+
+#add-card{
     background-color: #CCD5AE;
     cursor: pointer;
+    height: 60%;
+    width: 80%;
+    margin: auto;
+    margin-top: 6vh;
+    border-radius: 50%;
+}
+#img-input{
+display: none;
 }

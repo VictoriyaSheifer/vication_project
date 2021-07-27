@@ -13,7 +13,6 @@ class LogIn extends Component {
       };
 
     componentDidMount(){
-        console.log("user-log-----log : " ,this.props.loged_in_user)
         let user = localStorage.getItem("user")
         let role = localStorage.getItem("role")
         user =  Number(JSON.parse(user))
@@ -196,7 +195,7 @@ class LogIn extends Component {
     }
 }
 const mapStateToProps = state => {
-    console.log("State : ", state)
+    // console.log("State : ", state)
     return {
         loged_in_user: state.loged_in_user,
         is_a_meneger: state.is_a_meneger,

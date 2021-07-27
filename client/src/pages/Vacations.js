@@ -15,7 +15,6 @@ class Vacations extends Component {
     }
 
     componentDidMount = () => {
-        console.log("user id vications : " ,this.props.loged_in_user)
         if(this.props.loged_in_user!== -1){
         }
         let role = localStorage.getItem("role")
@@ -24,6 +23,7 @@ class Vacations extends Component {
             this.props.isAManeger(true);
         else
             this.props.isAManeger(false);
+        console.log("user id vications : " ,this.props.loged_in_user)
         console.log("role Log-in: " ,this.props.is_a_meneger)
     }
 
@@ -42,7 +42,7 @@ class Vacations extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log("State : ", state)
+    // console.log("State : ", state)
     return {
         loged_in_user: state.loged_in_user,
         is_a_meneger: state.is_a_meneger,

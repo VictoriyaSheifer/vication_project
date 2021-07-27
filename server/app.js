@@ -1,15 +1,28 @@
 const express = require('express');
 const app = express();
-var multer = require('multer');
-var path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-var port = 3003;
+//picture upload
+var multer = require('multer');
+var path = require('path');
+//socket
+const http = require('http')
+const socketIO = require('socket.io')
+
+/* ************************ */
+/*       Define Models      */
+/* ************************ */
 
 const Vacations = require('./models/VacationsModel');
 const Users = require('./models/UsersModel');
+const UserVacation = require('./models/userVacationModale');
 
 Users.belongsToMany(Vacations, { through: 'user_vacations' });
+
+
+/* ************************ */
+/*       Define sequelize   */
+/* ************************ */
 
 const Sequelize = require('sequelize');
 const sequelize = require('./utils/databse');
@@ -25,17 +38,25 @@ var corsOptions = {
     optionsSuccessStatus: 200 
 }
 
+/* ************************ */
+/*       Define cors        */
+/* ************************ */
+
 app.use(cors(corsOptions))
+
+/* ************************ */
+/*       Routes             */
+/* ************************ */
 
 const VacationsRoute = require('./routes/VacationsRoute');
 app.use("/vacations", VacationsRoute);
 
 const UsersRoute = require('./routes/UsersRoute');
 app.use("/users", UsersRoute);
-// var server = app.listen(port, function () {
-//   console.log("Listening on port %s...", 5000);
-// });
 
+/* ************************ */
+/*       Upload image       */
+/* ************************ */
 
 // specify the folder
 app.use(express.static(path.join(__dirname, 'uploads')));
@@ -63,7 +84,15 @@ app.post("/upload", upload.array("uploads[]", 12), function (req, res) {
   res.send(req.files);
 });
 
+/* ************************ */
+/*       Socket io          */
+/* ************************ */
 
+
+
+/* ************************ */
+/*       General            */
+/* ************************ */
 
 app.use((req, res) => {
     res.send("Page NotFound");

@@ -1,0 +1,21 @@
+.VictoryContainer:nth-child(2)
+{
+    text{
+        tspan{
+            font-size: 0.9vh !important;
+        }
+    }
+}
+.VictoryContainer:nth-child(1)
+{
+    text{
+        tspan{
+            font-size: 1.1vh !important;
+        }
+    }
+}
+.graph-container{
+    height: 80%;
+    width: 80%;
+    margin: auto;
+}

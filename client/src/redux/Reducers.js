@@ -9,7 +9,7 @@ const initialState = {
 
 
 function rootReducer(state = initialState, action) {
-    console.log("Root : ", action, state)
+    // console.log("Root : ", action, state)
 
     switch (action.type) {
         case 'updateLogedInUser':
