@@ -15,8 +15,8 @@ export function getRequest(url) {
 
 export function postRequest(url, ob) {
     return new Promise(async (resolve, reject) => {
-        console.log("POST ")
-        console.log("ob ",ob)
+        // console.log("POST ")
+        // console.log("ob ",ob)
         try {
             let res = await axios.post(GlobalURL + url, ob)
             resolve(res);
