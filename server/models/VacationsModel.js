@@ -42,5 +42,3 @@ const Vacations = sequelize.define('vacations', {
 module.exports = Vacations;
 
 
-
-

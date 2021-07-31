@@ -3,6 +3,7 @@ const initialState = {
     loged_in_user : -1,
     is_a_meneger : false,
     vacations:[{}],
+    likedVacationsByUser:[{}],
 };
 
 
@@ -20,6 +21,9 @@ function rootReducer(state = initialState, action) {
             break;
         case 'updateVacations':
             state = { ...state, vacations: action.payload }
+            break;
+        case 'updatelikedVacationsByUser':
+            state = { ...state, likedVacationsByUser: action.payload }
             break;
         default : break;
     }

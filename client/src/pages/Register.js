@@ -11,53 +11,47 @@ class Register extends Component {
     }
 
     componentDidMount = () => {
-        console.log("user-log ---register : " ,this.props.loged_in_user)
+        //console.log("user-log ---register : " ,this.props.loged_in_user)
         let user = localStorage.getItem("user")
-        console.log("userId localStorage: " ,user)
+        //console.log("userId localStorage: " ,user)
         user =  JSON.parse(user)
-        console.log("userId : " ,user)
+        //console.log("userId : " ,user)
         this.props.updateLogedInUser(user);
-        console.log("userId register-prop: " ,this.props.loged_in_user)
+        //console.log("userId register-prop: " ,this.props.loged_in_user)
+
+        //if user is logged in he can not register only if he will log out 
+        if(user !== -1){
+            window.location.replace("http://localhost:3000/");
+        }
     }
 
-    getAllUsers = async () => {
-        let teams = await Api.getRequest("/users/getAllUsers")
-        this.props.updateTeams(teams.data);
-        console.log("Users : ", teams.data)
-    }
-
-    getMeetings = async () => {
-        console.log("select::::" , this.props.selected_team)
-        let meetings = await Api.getRequest("/meetings/getMeetingById?id=" + this.props.selected_team )
-        this.props.updateMeetings(meetings.data);
-        console.log("meetings : ", meetings.data)
-    }
-
-
+    //use regular expretion to check mail
     validateEmail(email) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
 
+    //check inputs of registration and add the new user.
     saveInServer = async () => {
+        //check if all filleds were filled 
         if(this.firstNameregisterinput.value === "" || this.lastNameregisterinput.value === "" || this.emailregisterinput.value ===  "" || this.passwordregisterinput.value === "" )
         {
             alert("please fill the form compleatly");
-        }
+        }//check if this email is valid 
         else if(this.validateEmail(this.emailregisterinput.value)){
             let ob = {
                 first_name: this.firstNameregisterinput.value.toLowerCase(),
                 last_name: this.lastNameregisterinput.value.toLowerCase(),
                 email: this.emailregisterinput.value.toLowerCase(),
                 password: this.passwordregisterinput.value
-            }
+            }//insert the user 
             let users = await Api.postRequest("/users/insertUser", ob)
             if(users.status === 200)
             {
                 localStorage.setItem("user", JSON.stringify(users.data.id))
-                console.log("registerd local storage in user id 1::::::",users.data.id)
+                //console.log("registerd local storage in user id 1::::::",users.data.id)
                 this.props.updateLogedInUser(users.data.id);
-                console.log("registerd local storage in user id 2::::::",this.props.loged_in_user)
+                //console.log("registerd local storage in user id 2::::::",this.props.loged_in_user)
                 window.location.replace("http://localhost:3000/vacations");
             }
             else

@@ -7,7 +7,9 @@ import { connect } from 'react-redux'
 import "./main.css"
 
 class Vacations extends Component {
-     
+     /*
+    if user is loged in he can see all the vacations, if not all users see a general vacation page.
+     */
     state = {
         loged_in_vacations: "loged_in_vacations",
         regular_vacations: "regular_vacations",
@@ -23,8 +25,8 @@ class Vacations extends Component {
             this.props.isAManeger(true);
         else
             this.props.isAManeger(false);
-        console.log("user id vications : " ,this.props.loged_in_user)
-        console.log("role Log-in: " ,this.props.is_a_meneger)
+        // console.log("user id vications : " ,this.props.loged_in_user)
+        // console.log("role Log-in: " ,this.props.is_a_meneger)
     }
 
     onChange(e) {

@@ -12,12 +12,13 @@ class Nav extends Component {
             this.props.isAManeger(true);
         else
             this.props.isAManeger(false);
-        console.log("role Log-in: " ,this.props.is_a_meneger)
+        // console.log("role Log-in: " ,this.props.is_a_meneger)
     }
 
     render() {
 
-        let graphLink = this.props.is_a_meneger ? <Link className="nav-li-item" to="/graphs"><div className="col-4 m-auto"><p>Graphs</p></div></Link> : ""
+        //only menager have grave route
+        let graphLink = this.props.is_a_meneger ? <Link className="nav-li-item" to="/graphs"><div className="col m-auto"><p>Graphs</p></div></Link> : ""
 
         return (
             <div className="nav-container">
@@ -25,8 +26,8 @@ class Nav extends Component {
                 </div>
                 <nav className="navbar-content text-center">
                     <div className="row text-center nav-ul-content">
-                    <Link className="nav-li-item" to="/home"><div className="col-4 m-auto "><p>Home</p></div></Link>
-                    <Link className="nav-li-item" to="/vacations"><div className="col-4 m-auto"><p>Vacations</p></div></Link>
+                    <Link className="nav-li-item" to="/"><div className="col m-auto "><p>Home</p></div></Link>
+                    <Link className="nav-li-item" to="/vacations"><div className="col m-auto"><p>Vacations</p></div></Link>
                     {graphLink}
                     </div>
                 </nav>

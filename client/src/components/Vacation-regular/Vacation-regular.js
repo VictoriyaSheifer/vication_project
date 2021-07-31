@@ -4,6 +4,7 @@ import './Vacation-regular.css';
 
 class Vacation_regular extends Component {
 
+    // general vacation page with general info , just for show
     render() {
         return (
             <div className="regular-container">
@@ -21,21 +22,21 @@ class Vacation_regular extends Component {
                 </div>
                 <div className="cards-reg-wrapper container">
                     <div className="row justify-content-center margin-top-bottom">
-                        <div className="col-4">
+                        <div className="col-md-5">
                             <div className="card-body">
                                 <h5 className="card-title font-family-Lobster">We have something for every body </h5>
                                 <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aspernatur adipisci quas provident cum ullam illum, perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate.provident cum ullam illum, perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate</p>
                             </div>
                         </div>
-                        <div className="col-4">
-                            <img src="./assets/images/vications_regular/1.jpg" className="card-img about-img" alt="..."/>
+                        <div className="col-md-5">
+                            <img src="http://www.localhost:5000/vications_regular/1.jpg" className="card-img about-img" alt="..."/>
                         </div>
                     </div>
                     <div className="row justify-content-center margin-top-bottom">
-                        <div className="col-4">
-                            <img src="./assets/images/vications_regular/2.jpg" className="card-img about-img" alt="..."/>
+                        <div className="col-md-5">
+                            <img src="http://www.localhost:5000/vications_regular/2.jpg" className="card-img about-img" alt="..."/>
                         </div>
-                        <div className="col-4">
+                        <div className="col-md-5">
                             <div className="card-body">
                                 <h5 className="card-title font-family-Lobster">Luxury Trips</h5>
                                 <p className="card-text">Provident cum ullam illum, perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate.Ullam illum, perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate</p>
@@ -44,21 +45,21 @@ class Vacation_regular extends Component {
 
                     </div>
                     <div className="row justify-content-center margin-top-bottom">
-                        <div className="col-4">
+                        <div className="col-md-5">
                             <div className="card-body">
                                 <h5 className="card-title font-family-Lobster">Family Vacations</h5>
                                 <p className="card-text">Uullam illum, perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate.Perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate.</p>
                             </div>
                         </div>
-                        <div className="col-4">
-                            <img src="./assets/images/vications_regular/3.jpg" className="card-img about-img" alt="..."/>
+                        <div className="col-md-5">
+                            <img src="http://www.localhost:5000/vications_regular/3.jpg" className="card-img about-img" alt="..."/>
                         </div>
                     </div>
                     <div className="row justify-content-center margin-top-bottom">
-                        <div className="col-4">
-                            <img src="./assets/images/vications_regular/4.jpg" className="card-img about-img" alt="..."/>
+                        <div className="col-md-5">
+                            <img src="http://www.localhost:5000/vications_regular/4.jpg" className="card-img about-img" alt="..."/>
                         </div>
-                        <div className="col-4">
+                        <div className="col-md-5">
                             <div className="card-body">
                                 <h5 className="card-title font-family-Lobster">Exotic Places</h5>
                                 <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto asperiores officia accusamus non inventore eaque perspiciatis harum, eius repudiandae repellat quod, odio culpa aut voluptates praesentium dolor dolores illum quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus totam repellendus nihil delectus, sint maxime explicabo, accusamus sequi harum libero eveniet, consequatur sapiente? Ipsum sint ratione mollitia reprehenderit suscipit quod?</p>
@@ -67,21 +68,21 @@ class Vacation_regular extends Component {
 
                     </div>
                     <div className="row justify-content-center margin-top-bottom">
-                        <div className="col-4">
+                        <div className="col-md-5">
                             <div className="card-body">
                                 <h5 className="card-title font-family-Lobster">Amazing Hiking Trails</h5>
                                 <p className="card-text">Uullam illum, perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate.Perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate.</p>
                             </div>
                         </div>
-                        <div className="col-4">
-                            <img src="./assets/images/vications_regular/5.jpg" className="card-img about-img" alt="..."/>
+                        <div className="col-md-5">
+                            <img src="http://www.localhost:5000/vications_regular/5.jpg" className="card-img about-img" alt="..."/>
                         </div>
                     </div>
                     <div className="row justify-content-center margin-top-bottom">
-                        <div className="col-4">
-                            <img src="./assets/images/vications_regular/6.jpg" className="card-img about-img" alt="..."/>
+                        <div className="col-md-5">
+                            <img src="http://www.localhost:5000/vications_regular/6.jpg" className="card-img about-img" alt="..."/>
                         </div>
-                        <div className="col-4">
+                        <div className="col-md-5">
                             <div className="card-body">
                                 <h5 className="card-title font-family-Lobster">Small and Isolated Towns</h5>
                                 <p className="card-text">Provident cum ullam illum, perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate.Ullam illum, perspiciatis quod, omnis dolore culpa accusantium sequi obcaecati recusandae reprehenderit exercitationem. Exercitationem, temporibus voluptate</p>
@@ -90,14 +91,14 @@ class Vacation_regular extends Component {
 
                     </div>
                     <div className="row justify-content-center margin-top-bottom">
-                        <div className="col-4">
+                        <div className="col-md-5">
                             <div className="card-body">
                                 <h5 className="card-title font-family-Lobster">Just Relax</h5>
                                 <p className="card-text">We started as a small travle agency that attempts to make every vacation personal and as cheep as we can. Our Gole was to make every costomer we had as joyfull as we can .One day one ours lates coustemers calld us as he returned from the vacation we organized for him and said "I had such a wonderful time , i wonder why i didnt here from you guys before"</p>
                             </div>
                         </div>
-                        <div className="col-4">
-                            <img src="./assets/images/vications_regular/7.jpg" className="card-img about-img" alt="..."/>
+                        <div className="col-md-5">
+                            <img src="http://www.localhost:5000/vications_regular/7.jpg" className="card-img about-img" alt="..."/>
                         </div>
                     </div> 
                 </div>

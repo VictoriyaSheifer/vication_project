@@ -1,5 +1,4 @@
 import './App.css';
-// import CreateVacation from './pages/CreateVacation'
 import Nav from './components/Nav/Nav'
 import { createStore } from "redux";
 import reducers from './redux/Reducers';
@@ -24,7 +23,7 @@ function App() {
             <LogIn />
             <Nav></Nav>
             <div className="App">
-                <Route path="/home" component={Home} />
+                <Route path="/" exact component={Home} />
                 <Route path="/vacations" component={Vacations} />
                 <Route path="/register" component={Register} />
                 <Route path="/graphs" component={Graph} />

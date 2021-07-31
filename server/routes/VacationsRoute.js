@@ -14,9 +14,5 @@ router.post('/editVacations', Vacations.editVacations)
 router.post('/calcLikedVacations', Vacations.calcLikedVacations)
 router.post('/calcAllLikedVacations', Vacations.calcAllLikedVacations)
 router.post('/getUsersLikedVacations', Vacations.getUsersLikedVacations)
-//http://www.localhost:5000/vacations/getAllVacations
-//http://www.localhost:5000/vacations/insertVacation
-//http://www.localhost:5000/vacations/likeVacation
-//http://www.localhost:5000/vacations/getnumberOfLikedVications
 
 module.exports = router;

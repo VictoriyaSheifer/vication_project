@@ -17,5 +17,3 @@ const UserVacations = sequelize.define('user_vacations', {
 module.exports = UserVacations;
 
 
-
-

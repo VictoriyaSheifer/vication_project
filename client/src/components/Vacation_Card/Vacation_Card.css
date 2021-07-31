@@ -1,14 +1,15 @@
 .vacation-option-wrapper-user, .vacation-option-wrapper-manager {
   width: 11%;
-  color: #ffffffc4;
+  color: #fffffff2;
 }
 
 .vacation-option-wrapper-user:active {
-  color: rgba(255, 255, 255, 0.897);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .liked-vacation {
   color: #e4b2b2;
+  text-shadow: 0px 0px 16px rgba(255, 255, 255, 0.897), 1px 1px 1px white, -1px -1px 1px white, 1px -1px 1px white, -1px 1px 1px white;
 }
 
 .unliked-vacation {

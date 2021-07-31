@@ -3,12 +3,16 @@ import './Footer.css';
 
 class Footer extends Component {
 
+    /*  
+    footer for fun ,this is not functional
+    */
+
     render() {
         return (
             <div className="footer-container">
                 <div className="container pt-5">
                 <div className="row  justify-content-center">
-                        <div className="col-lg-3">
+                        <div className="col-3">
                             <h4 className="feat-heder ">Help</h4>
                            <ul>
                                <li>Help & FAQ</li>
@@ -16,7 +20,7 @@ class Footer extends Component {
                                 <li>Privacy Policy</li>
                            </ul>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-3">
                             <h4 className="feat-heder" >Company</h4>
                             <ul>
                                <li>About</li>
@@ -24,7 +28,7 @@ class Footer extends Component {
                                 <li>Reviews</li>
                            </ul>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-3">
                             <h4 className="feat-heder">Let's Get Social</h4>
                             <div className="row">
                             <i className="fab fa-facebook-f fa-2x m-2"></i>

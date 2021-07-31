@@ -7,5 +7,4 @@ const sequelize = new Sequelize('vication_project', 'root', '', {
     dialect: 'mysql'
 })
 
-
 module.exports = sequelize;

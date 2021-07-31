@@ -9,7 +9,11 @@ var path = require('path');
 const http = require("http")
 const socketIO = require("socket.io")
 const server =http.createServer(app)
-const io = socketIO(server)
+const io = socketIO(server,{
+  cors:{
+    origin: "*"
+  }
+});
 
 /* ************************ */
 /*       Define Models      */
@@ -87,7 +91,7 @@ app.post("/upload", upload.array("uploads[]", 12), function (req, res) {
 });
 
 /* ************************ */
-/*       General            */
+/*       app               */
 /* ************************ */
 
 app.use((req, res) => {
@@ -97,28 +101,30 @@ app.use((req, res) => {
 sequelize.sync().then(result => {
     console.log("Connected DB !!")
     app.listen(5000);
+   
 }).catch(err => {
     console.log("Error connected DB !!")
 })
 
-
-  /* ************************ */
+/* ************************ */
 /*       Socket io          */
 /* ************************ */
 
-
+//module.exports =  io;
 // This is what the socket.io syntax is like, we will work this later
 io.on('connection', (socket) => {
     console.log('New client connected::::::::::::::')
 
-    // just like on the client side, we have a socket.on method that takes a callback function
+    //update-vacation session
     socket.on('update-vacation2', () => {
-        // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
-        // we make use of the socket.emit method again with the argument given to use from the callback function above
         console.log('vacaion Changed to::::::::::::: ')
-        io.sockets.emit('update-vacation2')
+        io.sockets.emit('update-vacation')
     })
-
+    //delete session
+    socket.on('delete', () => {
+      console.log('delete Changed to::::::::::::: ')
+      io.sockets.emit('delete-vacation')
+  })
     socket.on("connect_error", (err) => {
       console.log(`connect_error due to ${err.message}`);
     });
@@ -129,5 +135,4 @@ io.on('connection', (socket) => {
     })
 })
 
-//server.listen(app.get(5000));
-server.listen(6003, () => console.log(`Listening on port ${6003}`))
+server.listen(5003, () => console.log(`Listening on port ${5003}`))

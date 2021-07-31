@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import './Graph.css';
 
 import * as Api from '../../api/apiCall';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel, VictoryZoomContainer ,VictoryBrushContainer} from 'victory';
+import { VictoryBar, VictoryChart, VictoryZoomContainer ,VictoryBrushContainer} from 'victory';
 
 class Graph extends Component {
 
+  /*
+created two graphs big one and a small one for scrolling if there are meny vacations
+in the graphs there will be only the liked ones by the users 
+  */
         state = {
             data:[],
-            vication_names:[],
+            //place the defult position of the view
             selectedDomain:{
                 x:[1, 6],
                 y:[0, 5],
@@ -24,9 +28,10 @@ class Graph extends Component {
     }
 
     getfilterdVacations = async () => {
+        //get only the needed info from the server 
         let vacations = await Api.getRequest("/vacations/getfilterdVacations")
-        let vication_names = vacations.data.map(vication => vication.destination)
         let data = [];
+        //go over the data and push only the liked ons 
         vacations.data.map(vication =>{
             let object={
                 vacation_name : vication.destination,
@@ -35,8 +40,8 @@ class Graph extends Component {
             if(object.followers !=0)
                 data.push(object)
         })
+        //update the data 
         this.setState({data})
-        this.setState({vication_names})
     }
 
   handleZoom(domain) {
@@ -53,7 +58,6 @@ class Graph extends Component {
           <VictoryChart
             width={550}
             height={200}
-            scale={{x: "vacations"}}
             containerComponent={
               <VictoryZoomContainer
                 zoomDimension="x"
@@ -88,10 +92,6 @@ class Graph extends Component {
               />
             }
           >
-            <VictoryAxis
-              tickFormat={this.state.vication_names}
-              
-            />
             <VictoryBar
                 x="vacation_name"
                 y="followers"

@@ -22,7 +22,7 @@ class Home extends Component {
                     <div className="welcome-row">
                             <div className="row">
                                 <div className="col-md-5">
-                                    <img src="./assets/images/wel.png" className="card-img welcome-img" alt="..."/>
+                                    <img src="http://www.localhost:5000/wel.png" className="card-img welcome-img" alt="..."/>
                                 </div>
                                 <div className="col-md-5">
                                     <div className="card-body">
@@ -42,7 +42,7 @@ class Home extends Component {
                                         </div>
                                     </div>
                                     <div className="col-md-5">
-                                        <img src="./assets/images/a-img.jpg" className="card-img about-img" alt="..."/>
+                                        <img src="http://www.localhost:5000/a-img.jpg" className="card-img about-img" alt="..."/>
                                     </div>
                                 </div>
                     

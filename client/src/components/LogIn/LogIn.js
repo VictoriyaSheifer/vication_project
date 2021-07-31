@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Api from '../../api/apiCall';
 class LogIn extends Component {
-
+    //styles 
     state = {
         reg_className: "floating-icons",
         log_className: "floating-icons",
@@ -13,46 +13,46 @@ class LogIn extends Component {
       };
 
     componentDidMount(){
+        //get information from local storage about connection to stay log in on refresh and update redusers
         let user = localStorage.getItem("user")
         let role = localStorage.getItem("role")
         user =  Number(JSON.parse(user))
         role =  Number(JSON.parse(role))
-        console.log("userId Log-in: " ,user)
-        console.log("role Log-in: " ,role)
+        // console.log("userId Log-in: " ,user)
+        // console.log("role Log-in: " ,role)
         this.props.updateLogedInUser(user);
         if(role)
             this.props.isAManeger(true);
         else
             this.props.isAManeger(false);
-        console.log("userId Log-in: " ,this.props.loged_in_user)
-        console.log("role Log-in: " ,this.props.is_a_meneger)
+        // console.log("userId Log-in: " ,this.props.loged_in_user)
+        // console.log("role Log-in: " ,this.props.is_a_meneger)
     }
 
 
     logInFunction = async () => {
-
+        //create ob with the info
         let user_cridentials = {
             email:this.useremaill.value,
             password:this.userpassword.value,
         }
-
+        //check if there is a user
         let users = await Api.postRequest("/users/CheckIfExist", user_cridentials)
         console.log("check if exists : " , users)
-
         if(users.data === "no found")
         {//wrong email
-            console.log("no user with this email")
+            //console.log("no user with this email")
             this.setState({email_validation_class :"form-control is-invalid"})
-            console.log("no log in for you !")
+            //console.log("no log in for you !")
         }
         else{
             let log_in_user = await Api.postRequest("/users/CheckCredentials", user_cridentials)
-            if(log_in_user.data === "no found"){
+            if(log_in_user.data === "no found"){ //no user
                 //wrong password
+                //update style
                 this.setState({email_validation_class :"form-control is-valid"})
                 this.setState({password_validation_class :"form-control is-invalid"})
                 console.log("no log in for you !")
-                
             }
             else{
                 //correct crieds
@@ -68,6 +68,7 @@ class LogIn extends Component {
                     this.props.isAManeger(false);
 
                 console.log("loged in succssess")
+                //empty inputs 
                 this.useremaill.value = ""
                 this.userpassword.value = ""
                 this.hideModal()
@@ -77,12 +78,12 @@ class LogIn extends Component {
                     email_validation_class :"form-control",
                     password_validation_class :"form-control",
                 })
-                alert("Welcome back!");
+                //go to vacations
                 window.location.replace("http://localhost:3000/vacations");
             }
         }
     }
-    
+    //animate the log in bnt
     animetedIcons(){
         if(this.props.loged_in_user === -1){
             this.setState({reg_className : "floating-icons reg-icon-animete"})
@@ -94,6 +95,7 @@ class LogIn extends Component {
         }
     }
 
+    //log out bnt click
     onClicklogInOptionBnt(){
         if(this.props.loged_in_user === -1){
             this.animetedIcons()
@@ -103,26 +105,26 @@ class LogIn extends Component {
         let question = window.confirm( "Are you sure you want to log out?" );
             if(question)
             {
+                //log out from system , update localstorage and redusers
                 localStorage.setItem("user", JSON.stringify(-1))
                 this.props.updateLogedInUser(-1);
                 localStorage.setItem("role", JSON.stringify(0))
                 this.props.isAManeger(false);
-                window.location.replace("http://localhost:3000/home");
+                //goto home
+                window.location.replace("http://localhost:3000/");
             }
         }
 
     }
 
+    //close the modal
     hideModal(){
         this.inputElement.click();
     }
 
-
-
     render() {
         let icon_title = this.props.log_in_user === -1 ? <title>log-in options</title> :<title>log out</title>
         return (
-            
             <div className="log-in-container">
                 <div className="icons-container">
                 <Link to="/register">
