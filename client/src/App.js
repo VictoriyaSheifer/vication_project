@@ -13,6 +13,7 @@ import Home from './pages/Home'
 import Vacations from './pages/Vacations'
 import Register from './pages/Register'
 
+
 const store = createStore(reducers);
 
 function App() {

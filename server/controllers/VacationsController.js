@@ -5,7 +5,6 @@ const Users_Vacations = require('../models/userVacationModale');
 
 exports.getAllVacations = async (req, res) => {
     await Vacations.findAll().then(result => {
-        console.log(result);
         res.send(result)
     }).catch(err => {
         res.send("error load getAllVacations" + JSON.stringify(err))
@@ -14,7 +13,6 @@ exports.getAllVacations = async (req, res) => {
 
 exports.getfilterdVacations = async (req, res) => {
     await Vacations.findAll({attributes: ['id', 'destination','num_of_followers']}).then(result => {
-        console.log(result);
         res.send(result)
     }).catch(err => {
         res.send("error load getfilterdVacations" + JSON.stringify(err))
@@ -121,7 +119,6 @@ exports.calcLikedVacations = async (req, res) => {
 exports.calcAllLikedVacations = async (req, res) => {
     let vacations;
     await Vacations.findAll().then(result => {
-        console.log(result);
         vacations = [...result]
         // res.send(vacations)
     }).catch(err => {

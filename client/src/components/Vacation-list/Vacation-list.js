@@ -6,26 +6,49 @@ import UploadImage from '../Vacation-list/UploadImage'
 import { connect } from 'react-redux'
 import * as Api from '../../api/apiCall';
 import { useRef } from "react";
+import socketIOClient from "socket.io-client";
 
 class VacationList extends Component {
 
+
+    socket;
+    state = {
+        endpoint: "localhost:6003",
+        vacation: {}
+    };
+
     filesToUpload;
     uploaded_picture = ""
-
+    
     componentDidMount = () => {
+        //start socket
+        // this.socket = socketIOClient(this.state.endpoint);
+        this.socket = socketIOClient(this.state.endpoint);
+        this.socket.on('update-vacation2', () =>{
+            console.log("ON : ")
+            this.getAllVacations();
+        })
+
+        //get all vacations
         this.getAllVacations()
         let user = localStorage.getItem("user")
         let role = localStorage.getItem("role")
         user =  Number(JSON.parse(user))
         role =  Number(JSON.parse(role))
-        console.log("userId vacation list: " ,user)
-        console.log("role vacation list: " ,role)
+        // console.log("userId vacation list: " ,user)
+        // console.log("role vacation list: " ,role)
         this.props.updateLogedInUser(user);
         if(role === 1)
             this.props.isAManeger(true);
         else
             this.props.isAManeger(false);
     }
+
+        // // sending sockets
+        // send = () => {
+        //     console.log("Send : ", this.state.vacation)
+        //     this.socket.emit('updateVacation', this.state.vacation) // change 'red' to this.state.color
+        // }
 
     getAllVacations = async () => {
         let ob = {
@@ -126,11 +149,13 @@ class VacationList extends Component {
                 this.imgInput.value = "";
             }
             let vacation = await Api.postRequest("/vacations/editVacations",ob)
-            console.log("vacation edit : ", vacation.data)
+            this.socket.emit('update-vacation2');
+            //setTimeout(() => { this.socket.emit('updateVacation', ob); }, 100);
+
             //close the modal
             this.closeEditModal.click();
             //update the vacations
-            this.getAllVacations();
+            //this.getAllVacations();
         }
         else {
             //add vacation
@@ -176,8 +201,9 @@ class VacationList extends Component {
         }
         console.log("UPLOAD ")
         let res = await Api.postRequest('/upload', formData)
-        console.log("res::::::::",res)
     }
+
+
 
 
     render() {

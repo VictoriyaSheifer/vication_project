@@ -6,8 +6,10 @@ const bodyParser = require('body-parser');
 var multer = require('multer');
 var path = require('path');
 //socket
-const http = require('http')
-const socketIO = require('socket.io')
+const http = require("http")
+const socketIO = require("socket.io")
+const server =http.createServer(app)
+const io = socketIO(server)
 
 /* ************************ */
 /*       Define Models      */
@@ -85,12 +87,6 @@ app.post("/upload", upload.array("uploads[]", 12), function (req, res) {
 });
 
 /* ************************ */
-/*       Socket io          */
-/* ************************ */
-
-
-
-/* ************************ */
 /*       General            */
 /* ************************ */
 
@@ -106,8 +102,32 @@ sequelize.sync().then(result => {
 })
 
 
-  
+  /* ************************ */
+/*       Socket io          */
+/* ************************ */
 
 
+// This is what the socket.io syntax is like, we will work this later
+io.on('connection', (socket) => {
+    console.log('New client connected::::::::::::::')
 
+    // just like on the client side, we have a socket.on method that takes a callback function
+    socket.on('update-vacation2', () => {
+        // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
+        // we make use of the socket.emit method again with the argument given to use from the callback function above
+        console.log('vacaion Changed to::::::::::::: ')
+        io.sockets.emit('update-vacation2')
+    })
 
+    socket.on("connect_error", (err) => {
+      console.log(`connect_error due to ${err.message}`);
+    });
+    
+    // disconnect is fired when a client leaves the server
+    socket.on('disconnect', () => {
+        console.log('user disconnected')
+    })
+})
+
+//server.listen(app.get(5000));
+server.listen(6003, () => console.log(`Listening on port ${6003}`))
